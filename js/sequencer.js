@@ -1,7 +1,7 @@
 app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
 
     //init data
-    $scope.step = {1:{name: "1", led: "X"}, 2:{name: "2", led: ""}, 3:{name: "3", led: ""}, 4:{name: "4", led: ""}};
+    $scope.step = {1:{active: false}, 2:{active: false}, 3:{active: false}, 4:{active: false}};
 
     //init sounds
     $scope.sound = ngAudio.load("audio/test.mp3");
@@ -35,10 +35,10 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
 
     $scope.stepNext = function() {
         if (lastStep != null) {
-            $scope.step[lastStep].name = "";
+            $scope.step[lastStep].active = false;
         }
 
-        $scope.step[curStep].name  = "x";
+        $scope.step[curStep].active  = true;
         $scope.sound.play();
 
 

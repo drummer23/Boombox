@@ -8,11 +8,14 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Angular -->
     <script src="lib/js/angular.js"></script>
     <script src="lib/js/angular.audio.js"></script>
+
+    <!-- Style -->
+    <link href="css/style.css" rel="stylesheet">
 
 
 </head>
@@ -22,10 +25,10 @@
 
 
     <div class="btn-group">
-        <div class="btn btn-default">{{step[1].name}}</div>
-        <div class="btn btn-default">{{step[2].name}}</div>
-        <div class="btn btn-default">{{step[3].name}}</div>
-        <div class="btn btn-default">{{step[4].name}}</div>
+        <div class="step red active-{{step[1].active}}"></div>
+        <div class="step red active-{{step[2].active}}"></div>
+        <div class="step red active-{{step[3].active}}"></div>
+        <div class="step red active-{{step[4].active}}"></div>
     </div>
 
 
