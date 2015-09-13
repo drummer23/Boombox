@@ -1,7 +1,10 @@
-app.controller('SeqCtrl', function($scope, $interval) {
+app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
 
     //init data
     $scope.step = {1:{name: "1", led: "X"}, 2:{name: "2", led: ""}, 3:{name: "3", led: ""}, 4:{name: "4", led: ""}};
+
+    //init sounds
+    $scope.sound = ngAudio.load("audio/test.mp3");
 
 
     var curStep = 1;
@@ -36,6 +39,9 @@ app.controller('SeqCtrl', function($scope, $interval) {
         }
 
         $scope.step[curStep].name  = "x";
+        $scope.sound.play();
+
+
         lastStep = curStep;
 
         console.log(curStep);
