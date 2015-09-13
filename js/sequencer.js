@@ -1,24 +1,41 @@
-app.controller('SeqCtrl', function($scope, $http) {
+app.controller('SeqCtrl', function($scope, $interval) {
 
     //init data
-    $scope.steps = {1:{name: "1", led: "X"}, 2:{name: "2", led: ""}, 3:{name: "3", led: ""}, 4:{name: "4", led: ""}};
+    $scope.step = {1:{name: "1", led: "X"}, 2:{name: "2", led: ""}, 3:{name: "3", led: ""}, 4:{name: "4", led: ""}};
 
-
-    //$scope.clock();
-
-    $scope.clock = function () {
-        setInterval($scope.nextStep, 500);
-    };
 
     var curStep = 1;
     var lastStep = null;
+    var stop;
 
-    $scope.nextStep = function () {
+    $scope.seqStart = function () {
+
+        // Don't start a sequence if are already running
+        if ( angular.isDefined(stop) ) return;
+
+        stop = $interval(function(){ $scope.stepNext(); }, 500);
+
+    };
+
+    $scope.seqStop = function() {
+        if (angular.isDefined(stop)) {
+            $interval.cancel(stop);
+            stop = undefined;
+        }
+    };
+
+    $scope.$on('$destroy', function() {
+        // Make sure that the interval is destroyed too
+        $scope.seqStop();
+    });
+
+
+    $scope.stepNext = function() {
         if (lastStep != null) {
-            $scope.steps[lastStep].led = "";
+            $scope.step[lastStep].name = "";
         }
 
-        $scope.steps[curStep].led = "x";
+        $scope.step[curStep].name  = "x";
         lastStep = curStep;
 
         console.log(curStep);

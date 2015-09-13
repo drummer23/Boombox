@@ -18,14 +18,17 @@
 
 
     <div class="btn-group">
-        <div ng-repeat="step in steps" class="btn btn-default">
-            {{step.name}} {{step.led}}
-        </div>
+        <div class="btn btn-default">{{step[1].name}}</div>
+        <div class="btn btn-default">{{step[2].name}}</div>
+        <div class="btn btn-default">{{step[3].name}}</div>
+        <div class="btn btn-default">{{step[4].name}}</div>
     </div>
 
 
     <form>
-        <button class="btn" ng-click="nextStep()"><i class="glyphicon-plus">Next Step</i></button>
+        <button class="btn" ng-click="seqStart()">Start</button>
+        <button class="btn" ng-click="seqStop()">Stop</button>
+        <button class="btn" ng-click="stepNext()">Next</button>
     </form>
 
 
