@@ -2,26 +2,26 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
 
     //init data
     $scope.step = {
-        1:{active: false},
-        2:{active: false},
-        3:{active: false},
-        4:{active: false},
-        5:{active: false},
-        6:{active: false},
-        7:{active: false},
-        8:{active: false},
-        9:{active: false},
-        10:{active: false},
-        11:{active: false},
-        12:{active: false},
-        13:{active: false},
-        14:{active: false},
-        15:{active: false},
-        16:{active: false}
+        1:{active: false, sound: false},
+        2:{active: false, sound: false},
+        3:{active: false, sound: false},
+        4:{active: false, sound: false},
+        5:{active: false, sound: false},
+        6:{active: false, sound: false},
+        7:{active: false, sound: false},
+        8:{active: false, sound: false},
+        9:{active: false, sound: false},
+        10:{active: false, sound: false},
+        11:{active: false, sound: false},
+        12:{active: false, sound: false},
+        13:{active: false, sound: false},
+        14:{active: false, sound: false},
+        15:{active: false, sound: false},
+        16:{active: false, sound: false}
     };
 
     //init sounds
-    $scope.sound = ngAudio.load("audio/test.mp3");
+    $scope.sound = ngAudio.load("audio/BD.WAV");
 
 
     var curStep = 1;
@@ -33,7 +33,7 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
         // Don't start a sequence if are already running
         if ( angular.isDefined(stop) ) return;
 
-        stop = $interval(function(){ $scope.stepNext(); }, 500);
+        stop = $interval(function(){ $scope.stepNext(); }, 125);
 
     };
 
@@ -56,18 +56,21 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
         }
 
         $scope.step[curStep].active  = true;
-        $scope.sound.play();
 
+        if($scope.step[curStep].sound) {
+            $scope.sound.play();
+        }
 
         lastStep = curStep;
-
-        console.log(curStep);
-        console.log(lastStep);
 
         curStep ++;
         if(curStep > 16) {
             curStep = 1;
         }
+    };
+
+    $scope.stepToggle = function(i) {
+        $scope.step[i].sound = !$scope.step[i].sound;
     };
 
 });

@@ -28,3 +28,7 @@
     border-width: 3px;
 }
 
+.sound-true {
+    box-shadow: 2px 2px 3px #888888 inset;
+}
+
