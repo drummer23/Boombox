@@ -1,5 +1,8 @@
 app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
 
+    $scope.s1 = {name: 'xx2'};
+
+
     //init data
     $scope.step = {
         1:{active: false, sound: false},
