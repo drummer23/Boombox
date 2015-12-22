@@ -1,26 +1,23 @@
 app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
 
-    $scope.s1 = {name: 'xx2'};
-
-
     //init data
     $scope.step = {
-        1:{active: false, sound: false},
-        2:{active: false, sound: false},
-        3:{active: false, sound: false},
-        4:{active: false, sound: false},
-        5:{active: false, sound: false},
-        6:{active: false, sound: false},
-        7:{active: false, sound: false},
-        8:{active: false, sound: false},
-        9:{active: false, sound: false},
-        10:{active: false, sound: false},
-        11:{active: false, sound: false},
-        12:{active: false, sound: false},
-        13:{active: false, sound: false},
-        14:{active: false, sound: false},
-        15:{active: false, sound: false},
-        16:{active: false, sound: false}
+        1: {active: false, sound: false, color: 'red'},
+        2: {active: false, sound: false, color: 'red'},
+        3: {active: false, sound: false, color: 'red'},
+        4: {active: false, sound: false, color: 'red'},
+        5: {active: false, sound: false, color: 'orange'},
+        6: {active: false, sound: false, color: 'orange'},
+        7: {active: false, sound: false, color: 'orange'},
+        8: {active: false, sound: false, color: 'orange'},
+        9: {active: false, sound: false, color: 'yellow'},
+        10:{active: false, sound: false, color: 'yellow'},
+        11:{active: false, sound: false, color: 'yellow'},
+        12:{active: false, sound: false, color: 'yellow'},
+        13:{active: false, sound: false, color: 'white'},
+        14:{active: false, sound: false, color: 'white'},
+        15:{active: false, sound: false, color: 'white'},
+        16:{active: false, sound: false, color: 'white'}
     };
 
     //init sounds
@@ -72,8 +69,8 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
         }
     };
 
-    $scope.stepToggle = function(i) {
-        $scope.step[i].sound = !$scope.step[i].sound;
+    $scope.stepToggle = function(step) {
+        step.sound = !step.sound;
     };
 
 });

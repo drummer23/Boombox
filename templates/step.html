@@ -1,1 +1,1 @@
-<div ng-click="stepToggle(1)"  class="step red active-{{step[1].active}} sound-{{step[1].sound}}">{{step.name}}</div>
+<div ng-click="$parent.stepToggle(step)"  class="step {{step.color}} active-{{step.active}} sound-{{step.sound}}"></div>
