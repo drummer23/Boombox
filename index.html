@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Boombox</title>
 
     <!-- Bootstrap -->
     <link href="lib/css/bootstrap.min.css" rel="stylesheet">
@@ -23,27 +23,23 @@
 
 <div id="wrapper" ng-controller="SeqCtrl">
 
-
     <div class="btn-group">
-        <div ng-click="stepToggle(1)"  class="step red active-{{step[1].active}} sound-{{step[1].sound}}"></div>
-        <div ng-click="stepToggle(2)"  class="step red active-{{step[2].active}} sound-{{step[2].sound}}"></div>
-        <div ng-click="stepToggle(3)"  class="step red active-{{step[3].active}} sound-{{step[3].sound}}"></div>
-        <div ng-click="stepToggle(4)"  class="step red active-{{step[4].active}} sound-{{step[4].sound}}"></div>
-
-        <div ng-click="stepToggle(5)"  class="step orange active-{{step[5].active}} sound-{{step[5].sound}}"></div>
-        <div ng-click="stepToggle(6)"  class="step orange active-{{step[6].active}} sound-{{step[6].sound}}"></div>
-        <div ng-click="stepToggle(7)"  class="step orange active-{{step[7].active}} sound-{{step[7].sound}}"></div>
-        <div ng-click="stepToggle(8)"  class="step orange active-{{step[8].active}} sound-{{step[8].sound}}"></div>
-
-        <div ng-click="stepToggle(9)"  class="step yellow active-{{step[9].active}}  sound-{{step[9].sound}}"></div>
-        <div ng-click="stepToggle(10)" class="step yellow active-{{step[10].active}} sound-{{step[10].sound}}"></div>
-        <div ng-click="stepToggle(11)" class="step yellow active-{{step[11].active}} sound-{{step[11].sound}}"></div>
-        <div ng-click="stepToggle(12)" class="step yellow active-{{step[12].active}} sound-{{step[12].sound}}"></div>
-
-        <div ng-click="stepToggle(13)" class="step white active-{{step[13].active}} sound-{{step[13].sound}}"></div>
-        <div ng-click="stepToggle(14)" class="step white active-{{step[14].active}} sound-{{step[14].sound}}"></div>
-        <div ng-click="stepToggle(15)" class="step white active-{{step[15].active}} sound-{{step[15].sound}}"></div>
-        <div ng-click="stepToggle(16)" class="step white active-{{step[16].active}} sound-{{step[16].sound}}"></div>
+        <step nr="step[1]"></step>
+        <step nr="step[2]"></step>
+        <step nr="step[3]"></step>
+        <step nr="step[4]"></step>
+        <step nr="step[5]"></step>
+        <step nr="step[6]"></step>
+        <step nr="step[7]"></step>
+        <step nr="step[8]"></step>
+        <step nr="step[9]"></step>
+        <step nr="step[10]"></step>
+        <step nr="step[11]"></step>
+        <step nr="step[12]"></step>
+        <step nr="step[13]"></step>
+        <step nr="step[14]"></step>
+        <step nr="step[15]"></step>
+        <step nr="step[16]"></step>
     </div>
 
 
@@ -63,5 +59,6 @@
 
 <script src="js/app.js"></script>
 <script src="js/sequencer.js"></script>
+<script src="js/step.js"></script>
 </body>
 </html>
