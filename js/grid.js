@@ -1,4 +1,4 @@
-app.controller('GridCtrl', ['$scope', '$interval', 'ngAudio', function($scope, $interval, ngAudio) {
+app.controller('GridCtrl', ['$scope', function($scope) {
 
 
 
