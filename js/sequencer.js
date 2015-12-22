@@ -69,10 +69,6 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
         }
     };
 
-    $scope.stepToggle = function(step) {
-        step.sound = !step.sound;
-    };
-
 });
 
 
