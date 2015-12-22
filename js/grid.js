@@ -1,4 +1,5 @@
-app.controller('GridCtrl', function($scope, $interval, ngAudio) {
+app.controller('GridCtrl', ['$scope', '$interval', 'ngAudio', 'SeqSrv',
+    function($scope, $interval, ngAudio, SeqSrv) {
 
     //init data
     $scope.step = {
@@ -69,7 +70,7 @@ app.controller('GridCtrl', function($scope, $interval, ngAudio) {
         }
     };
 
-});
+}]);
 
 
 
