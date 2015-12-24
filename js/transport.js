@@ -1,4 +1,4 @@
-app.controller('TransCtrl', ['$scope', function($scope) {
+app.controller('TransCtrl', ['$scope', 'SeqSrv', function($scope, SeqSrv) {
 
     $scope.onStart = function() {
         this.seqStart();
@@ -9,7 +9,7 @@ app.controller('TransCtrl', ['$scope', function($scope) {
     };
 
     $scope.onNext = function() {
-        this.seqNext();
+        SeqSrv.test();
     }
 
 }]);
