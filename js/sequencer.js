@@ -1,6 +1,9 @@
-app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
+app.controller('SeqCtrl', ['$scope', '$interval', 'ngAudio', function($scope, $interval, ngAudio) {
 
-    //init data
+    /////////////////////////////////////////////////
+    // Initialize
+
+    //init steps
     $scope.step = {
         1: {active: false, sound: false, color: 'red'},
         2: {active: false, sound: false, color: 'red'},
@@ -24,25 +27,15 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
     $scope.sound = ngAudio.load("audio/BD.WAV");
 
 
+    //init sequencer
     var curStep = 1;
     var lastStep = null;
     var stop;
 
-    $scope.seqStart = function () {
 
-        // Don't start a sequence if are already running
-        if ( angular.isDefined(stop) ) return;
+    /////////////////////////////////////////////////
+    // Events
 
-        stop = $interval(function(){ $scope.stepNext(); }, 125);
-
-    };
-
-    $scope.seqStop = function() {
-        if (angular.isDefined(stop)) {
-            $interval.cancel(stop);
-            stop = undefined;
-        }
-    };
 
     $scope.$on('$destroy', function() {
         // Make sure that the interval is destroyed too
@@ -50,7 +43,40 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
     });
 
 
-    $scope.stepNext = function() {
+
+    /////////////////////////////////////////////////
+    //Sequencer Logic
+
+
+
+    /**
+     * Starts the Sequencer - aka start the interval
+     */
+    $scope.seqStart = function seqStart() {
+
+        // Don't start a sequence if are already running
+        if ( angular.isDefined(stop) ) return;
+
+        stop = $interval(function(){ $scope.seqNext(); }, 125);
+
+    };
+
+
+    /**
+     * Stop the Sequencer - aka stops the interval
+     */
+    $scope.seqStop = function seqStop() {
+        if (angular.isDefined(stop)) {
+            $interval.cancel(stop);
+            stop = undefined;
+        }
+    };
+
+
+    /**
+     * Processes next Step - aka interval
+     */
+    $scope.seqNext = function seqNext() {
         if (lastStep != null) {
             $scope.step[lastStep].active = false;
         }
@@ -69,15 +95,4 @@ app.controller('SeqCtrl', function($scope, $interval, ngAudio) {
         }
     };
 
-});
-
-
-
-
-
-
-
-
-
-
-
+}]);
