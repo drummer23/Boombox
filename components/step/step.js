@@ -5,7 +5,7 @@ app.directive('step', function() {
         scope: {
             step: '=nr'
         },
-        templateUrl: 'templates/step.html'
+        templateUrl: 'components/step/step.html'
     };
 });
 
