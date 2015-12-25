@@ -1,7 +1,9 @@
-app.controller('SeqCtrl', ['$scope', '$interval', 'ngAudio', function($scope, $interval, ngAudio) {
+app.controller('SeqCtrl', ['$scope', '$interval', 'ngAudio', 'Pattern', function($scope, $interval, ngAudio,Pattern) {
 
     /////////////////////////////////////////////////
     // Initialize
+    var pattern = new Pattern();
+
 
     //init steps
     $scope.step = {
