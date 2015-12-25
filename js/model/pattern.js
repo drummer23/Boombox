@@ -1,4 +1,4 @@
-app.factory('Pattern', function (Step) {
+app.factory('Pattern', ['Step', function (Step) {
 
     /**
      * Constructor, with class name
@@ -58,4 +58,4 @@ app.factory('Pattern', function (Step) {
      * Return the constructor function
      */
     return Pattern;
-});
+}]);

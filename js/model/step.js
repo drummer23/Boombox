@@ -1,4 +1,4 @@
-app.factory('Step', function () {
+app.factory('Step', [function () {
 
     /**
      * Constructor, with class name
@@ -56,4 +56,4 @@ app.factory('Step', function () {
      * Return the constructor function
      */
     return Step;
-});
+}]);
