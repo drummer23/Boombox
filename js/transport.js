@@ -9,7 +9,7 @@ app.controller('TransCtrl', ['$scope', 'SeqSrv', function($scope, SeqSrv) {
     };
 
     $scope.onNext = function() {
-        SeqSrv.test();
+        this.seqNext();
     }
 
 }]);
