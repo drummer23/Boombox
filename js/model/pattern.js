@@ -5,54 +5,46 @@ app.factory('Pattern', ['Step', function (Step) {
      */
     function Pattern() {
         // Public properties, assigned to the instance ('this')
-        this.steps = [];
-
-        for (i = 0; i < 16; i++) {
-            this.steps.push(new Step(i));
-        }
+        this.steps = initSteps(64);
     }
 
+    /**
+     * Public method, assigned to prototype
+     */
+    Pattern.prototype.getSubParttern = function (part) {
 
-    ///**
-    // * Public method, assigned to prototype
-    // */
-    //User.prototype.getFullName = function () {
-    //    return this.firstName + ' ' + this.lastName;
-    //};
-    //
-    ///**
-    // * Private property
-    // */
-    //var possibleRoles = ['admin', 'editor', 'guest'];
-    //
-    ///**
-    // * Private function
-    // */
-    //function checkRole(role) {
-    //    return possibleRoles.indexOf(role) !== -1;
-    //}
-    //
-    ///**
-    // * Static property
-    // * Using copy to prevent modifications to private property
-    // */
-    //User.possibleRoles = angular.copy(possibleRoles);
-    //
-    ///**
-    // * Static method, assigned to class
-    // * Instance ('this') is not available in static context
-    // */
-    //User.build = function (data) {
-    //    if (!checkRole(data.role)) {
-    //        return;
-    //    }
-    //    return new User(
-    //        data.first_name,
-    //        data.last_name,
-    //        data.role,
-    //        Organisation.build(data.organisation) // another model
-    //    );
-    //};
+        subPattern = [];
+
+        switch(part) {
+            case 'A':
+                subPattern = this.steps.slice(0,15);
+                break;
+            case 'B':
+                subPattern = this.steps.slice(16,31);
+                break;
+            default:
+                subPattern = this.steps.slice(0,15);
+        }
+
+        return subPattern;
+    };
+
+
+    /**
+     * Initializes Steps
+     *
+     * @param count Number of Steps
+     * @returns {Array} Steps
+     */
+    function initSteps(count) {
+        var steps = [];
+
+        for (i = 0; i < count; i++) {
+            steps.push(new Step(i));
+        }
+
+        return steps;
+    }
 
     /**
      * Return the constructor function
