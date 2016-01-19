@@ -11,19 +11,19 @@ app.factory('Pattern', ['Step', function (Step) {
     /**
      * Public method, assigned to prototype
      */
-    Pattern.prototype.getSubParttern = function (part) {
+    Pattern.prototype.getPart = function (part) {
 
         subPattern = [];
 
         switch(part) {
             case 'A':
-                subPattern = this.steps.slice(0,15);
+                subPattern = this.steps.slice(0,16);
                 break;
             case 'B':
-                subPattern = this.steps.slice(16,31);
+                subPattern = this.steps.slice(16,32);
                 break;
             default:
-                subPattern = this.steps.slice(0,15);
+                subPattern = this.steps.slice(0,16);
         }
 
         return subPattern;
