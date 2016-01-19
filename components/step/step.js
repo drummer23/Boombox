@@ -3,7 +3,8 @@ app.directive('step', function() {
         controller: 'StepCtrl',
         restrict: 'E',
         scope: {
-            step: '=nr'
+            step: '=nr',
+            color: '=color'
         },
         templateUrl: 'components/step/step.html'
     };

@@ -5,7 +5,7 @@ app.factory('Pattern', ['Step', function (Step) {
      */
     function Pattern() {
         // Public properties, assigned to the instance ('this')
-        this.steps = initSteps(64);
+        this.steps = initSteps(32);
     }
 
     /**
